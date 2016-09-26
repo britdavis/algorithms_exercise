@@ -1,0 +1,44 @@
+<!-- 
+Write a guessing game using looping and prompts!
+
+Have the user come up with a number between 1 and 100 (inclusive), but not enter it into the computer. Have the computer guess numbers in that same range, and ask the user if that is the number (e.g. “Is 40 your number?”). You can use prompt text (propmt("is 40 your number")) to accomplish this. If the number is too high, have the user enter “H”. If the number is too low, have the user enter “L”. If the computer guessed the number, have the user enter “Y”, and start a new game. Can you write an efficient algorithm so that the computer will find your number in the minimum number of guesses?
+ 
+* 
+
+
+
+
+ -->
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Guess the Number</title>
+ </head>
+ <body>
+ 	<script>
+ 		
+ 	a = prompt("Pick an number between 1 and 100");
+ 	b = [];
+ 	b = Math.floor((Math.random() * 50) + 1);
+ 	g = (prompt("Is it " + b + "? (Y)es or (H)igher or (L)ower?"))
+ 	g = g.toUpperCase();
+ 	console.log(a, b, g);
+ 	if (g === "L") {
+ 			alert("It is lower");
+ 		} else if (g === "Y") {
+ 			alert("It is higher");
+ 		}
+ 		
+ 
+ 	if (g === "Y") {
+ 		alert("I guesed it!");
+ 	}
+
+ 
+
+
+
+ 	</script>
+ </body>
+ </html>

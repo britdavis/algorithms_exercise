@@ -1,0 +1,25 @@
+<!-- 
+Given a string, for example, “Hello World”, write some code to reverse that string (“dlroW olleH”).
+(Hint: try using the Array.reverse() method! But, if you do, try solving it just using looping as well).
+ -->
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Reverse String</title>
+ </head>
+ <body>
+ 	<script>
+ 		var phrase_fwd = "swaP goD for a JAnItoR";
+ 		var phrase_bkw = [];
+ 		var i = (phrase_fwd.length) - 1;
+ 		while (i >= 0) {
+ 			console.log(phrase_fwd[i])
+ 			phrase_bkw.push(phrase_fwd[i]);
+ 			i = i - 1;
+ 		}
+ 		alert(phrase_bkw.join(""));
+ 	</script>
+	
+ </body>
+ </html>
