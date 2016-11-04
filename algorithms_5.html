@@ -19,26 +19,33 @@ Have the user come up with a number between 1 and 100 (inclusive), but not enter
  	<script>
  		
  	a = prompt("Pick an number between 1 and 100");
- 	b = [];
- 	b = Math.floor((Math.random() * 50) + 1);
- 	g = (prompt("Is it " + b + "? (Y)es or (H)igher or (L)ower?"))
- 	g = g.toUpperCase();
- 	console.log(a, b, g);
- 	if (g === "L") {
- 			alert("It is lower");
- 		} else if (g === "Y") {
- 			alert("It is higher");
+ 	// b = [];
+ 	b = Math.floor((Math.random() * 100) + 1);
+ 	var min = 1;
+ 	var max = 100;
+ 	var g; 
+ 	console.log("Number = " + a);
+ 	while (g !== "Y") {
+ 		console.log("max = " + max + " min = " + min);
+ 		g = (prompt("Is it " + b + "? (Y)es or (H)igher or (L)ower?"));
+ 		g = g.toUpperCase();
+ 		if (g === "Y") {
+ 			// alert("I guessd it");
+ 			// break;
  		}
- 		
- 
- 	if (g === "Y") {
- 		alert("I guesed it!");
+	 	if (g === "L") {
+	 			// alert("It is lower");
+	 			max = b;
+	 			b = max - Math.floor((max - min) / 2);	 			
+	 			// g = (prompt("Is it " + b + "? (Y)es or (H)igher or (L)ower?"));
+	 	} else if (g === "H") {
+	 			// alert("It is higher");
+	 			min = b;
+	 			b = min + Math.floor((max - min) /2) ;
+	 			//g = (prompt("Is it " + b + "? (Y)es or (H)igher or (L)ower?"));
+	 	}
  	}
-
- 
-
-
-
+ 	alert("I guessd it");
  	</script>
  </body>
  </html>

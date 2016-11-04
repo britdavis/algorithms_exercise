@@ -18,20 +18,18 @@ By considering the terms in the Fibonacci sequence whose values do not exceed tw
  		var imax = 2000000;
  		var fs = [0,1];
  		var sum = 0;
- 		while (fs[i] < imax) {
+ 		while ((fs[i] + fs[i-1]) < imax) {
+ 		// while (fs[i] < imax) {
  		 	fs.push(fs[i] + fs[i-1]);
- 		 	var g = (fs[i] + fs[i - 1])
+ 		 	var g = (fs[i] + fs[i - 1]);
  		 	if (g % 2 === 0) {
- 		 		console.log(g);
+ 		 		// console.log(g);
  		 		sum = sum + g;
  		 	}
  		 	i++;
  		}
  		console.log(fs);
  		console.log(sum);
-
-
  	</script>
- 	
  </body>
  </html>

@@ -12,12 +12,98 @@ When they get past the dragon (“go north” in the north room while holding th
 If you are feeling adventurous, try adding even more rooms, items, and challenges to this game!
  -->
 
+
+
  <!DOCTYPE html>
  <html>
  <head>
- 	<title>Adventure Game</title>
+ 	<meta charset="UTF-8">
+ 	<title>Brit's Dungeon Adventure</title>
  </head>
  <body>
- 	
+ 	<script>	
+
+	var room_start = true;
+	var room_north = false;
+	var room_west = false;
+	var has_shield = false;
+	var pass_dragon = false;
+	
+	while (pass_dragon === false) {
+		while (room_start === true) {
+			
+			var user_action = prompt("You are in a dimly-lit room.  You can go north or west to exit the room. What do you want to do? Hint: 'go north' or 'go west'");
+			if (user_action === "go north") { 
+				room_start = false;
+				room_west = false;
+				room_north = true;
+			} else if (user_action === "go west") {
+				room_start = false;
+				room_west = true;
+				room_north = false;
+			} else {
+				user_action = prompt("You are in the first room.  There is an exit to the north and to the west.");
+			}
+	}		
+		
+		 while (room_west === true) {
+			room_start = false;
+			room_north = false;
+			user_action = prompt("There is a shield in this room.  Would you like to pick it up?");
+			
+			if (user_action === "yes") {
+				has_shield = true;
+				user_action = prompt("You now have the shield.  There is an open door to the east.");
+			
+				if (user_action === "go east") {
+					room_west = false;
+					room_start = true;
+					room_north = false;
+				}
+			
+			} else if (has_shield === false) {
+				user_action = prompt("There is an exit to the east.");
+			
+				if (user_action === "go east") {
+					room_west = false;
+					room_start = true;
+					room_north = false;
+			
+				} else {
+					user_action = prompt("There is an open door to the east.");
+				}
+			}
+		 }
+		 while (room_north === true && pass_dragon === false) {
+			room_start = false;
+			room_west = false;
+			user_action = prompt("There is a dragon blocking your way!  User your shield to pass him and exit to the north.");
+			
+			if ((user_action === "go north") && (has_shield === false)) {
+				user_action = prompt("You need a  shield!  Go back and get it if you want to live.");
+					
+					if (user_action === "go south") {
+					room_start = true;	
+					room_north = false;
+					room_west = false;
+					}	
+					else {
+					user_action = prompt("There is a dragon blocking your way!  Use your shield to pass him and exit to the north?");
+					room_start = true;
+					room_north = false;
+					room_west = false;
+					}
+			} else if ((user_action === "go south") && (has_shield === false)) {
+				room_start = true;
+				room_north = false;
+				room_west = false;
+				
+			} else if ((user_action === "go north") && (has_shield === true)) {
+				alert("You got past the dragon, great job!");
+				pass_dragon = true;
+			}
+		}			
+	}
+ 	</script>	
  </body>
  </html>
